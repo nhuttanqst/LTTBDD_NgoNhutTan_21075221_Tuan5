@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import {
   View,
   Image,
@@ -8,6 +9,8 @@ import {
 } from "react-native";
 
 const Screen_01 = () => {
+  const navigation = useNavigation();
+
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <View>
@@ -21,10 +24,13 @@ const Screen_01 = () => {
         <Text style={styles.text2}>Simplify tasks, boost productivity</Text>
       </View>
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("Screen_02")}
+          style={styles.button}
+        >
           <Text style={styles.signUp}>Sign up</Text>
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("Screen_03")}>
           <Text style={styles.login}>Login</Text>
         </TouchableOpacity>
       </View>
