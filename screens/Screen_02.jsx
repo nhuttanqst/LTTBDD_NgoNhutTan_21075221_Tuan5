@@ -67,7 +67,7 @@ const Screen_02 = () => {
         {
           text: "OK",
           onPress: () => {
-            resetField();
+            resetFields();
             navigation.navigate("Screen_03");
           },
         },
@@ -75,7 +75,7 @@ const Screen_02 = () => {
     );
   };
 
-  const resetField = () => {
+  const resetFields = () => {
     setUserName("");
     setEmail("");
     setPassword("");

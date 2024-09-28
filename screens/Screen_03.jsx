@@ -8,9 +8,69 @@ import {
   KeyboardAvoidingView,
   ScrollView,
   Platform,
+  Alert,
 } from "react-native";
+import { useContext, useState } from "react";
+import { useNavigation } from "@react-navigation/native";
+import { AccountContext } from "../AccountContext/AccountContext";
+import validator from "validator";
 
 const Screen_03 = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [type, setType] = useState(true);
+
+  const { account } = useContext(AccountContext);
+  const navigation = useNavigation();
+
+  const validateForm = () => {
+    if (!email || !password) {
+      Alert.alert("Incomplete Form", "Please fill in all fields!");
+      return false;
+    } else if (!validator.isEmail(email)) {
+      Alert.alert("Invalid email!", "Please enter a valid email address!");
+      return false;
+    }
+    return true;
+  };
+
+  const checkAccount = () => {
+    const found = account.find((item) => item.email === email);
+    if (!found) return false;
+    if (found.password !== password) return false;
+    return true;
+  };
+
+  const resetFields = () => {
+    setEmail("");
+    setPassword("");
+    setType(true);
+  };
+
+  const handleLogin = () => {
+    if (!validateForm()) return;
+    if (!checkAccount()) {
+      Alert.alert(
+        "Invalid Credentials",
+        "Please check your email and password"
+      );
+      return;
+    }
+    Alert.alert(
+      "Login Successful!",
+      "Welcome! You have successfully logged into your account",
+      [
+        {
+          text: "OK",
+          onPress: () => {
+            resetFields();
+            navigation.navigate("Screen_04");
+          },
+        },
+      ]
+    );
+  };
+
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -35,7 +95,12 @@ const Screen_03 = () => {
                   style={styles.imageInput}
                   source={require("../assets/DATA/Vector.png")}
                 />
-                <TextInput style={styles.textInput} placeholder="Enter email" />
+                <TextInput
+                  value={email}
+                  style={styles.textInput}
+                  placeholder="Enter email"
+                  onChangeText={(value) => setEmail(value)}
+                />
               </View>
               <View style={styles.groupInput}>
                 <Text style={[styles.titleInput, { marginTop: 20 }]}>
@@ -46,16 +111,25 @@ const Screen_03 = () => {
                   source={require("../assets/DATA/lock.png")}
                 />
                 <TextInput
-                  style={styles.textInput}
+                  value={password}
+                  secureTextEntry={type}
                   placeholder="Enter password"
+                  style={styles.textInput}
+                  onChangeText={(value) => setPassword(value)}
                 />
-                <TouchableOpacity style={styles.imageEye}>
+                <TouchableOpacity
+                  style={styles.imageEye}
+                  onPress={() => setType((prev) => !prev)}
+                >
                   <Image source={require("../assets/DATA/eye.png")} />
                 </TouchableOpacity>
               </View>
             </View>
             <View style={styles.buttonContainer}>
-              <TouchableOpacity style={styles.button}>
+              <TouchableOpacity
+                onPress={() => handleLogin()}
+                style={styles.button}
+              >
                 <View>
                   <Text style={styles.login}>Login</Text>
                 </View>
@@ -128,7 +202,7 @@ const styles = StyleSheet.create({
     height: 30,
   },
   buttonContainer: {
-    marginTop: 70,
+    marginTop: 80,
     width: "100%",
     paddingVertical: 20,
   },
