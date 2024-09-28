@@ -15,7 +15,7 @@ const Screen_01 = () => {
     <ScrollView contentContainerStyle={styles.container}>
       <View>
         <Image
-          style={{ flex: 1, width: "100%", borderRadius: 20 }}
+          style={{ flex: 1, width: "100%", borderRadius: 20, marginTop: 15 }}
           source={require("../assets/DATA/Container 17.png")}
         />
       </View>
