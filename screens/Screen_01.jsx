@@ -16,7 +16,7 @@ const Screen_01 = () => {
       <View>
         <Image
           style={{ flex: 1, width: "100%", borderRadius: 20, marginTop: 15 }}
-          source={require("../assets/DATA/Container 17.png")}
+          source={require("../assets/DATA/Container17.png")}
         />
       </View>
       <View>

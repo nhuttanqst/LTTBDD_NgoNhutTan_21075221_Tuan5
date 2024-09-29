@@ -8,7 +8,7 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 export default function Screen_04() {
   const images = [
     {
-      url: require("../assets/DATA/Container 7 (2).png"),
+      url: require("../assets/DATA/Container7(2).png"),
       priceXS: 1.99,
       priceS: 2.99,
       priceM: 3.99,
@@ -16,7 +16,7 @@ export default function Screen_04() {
       priceXL: 5.99,
     },
     {
-      url: require("../assets/DATA/Container 7 (1).png"),
+      url: require("../assets/DATA/Container7(1).png"),
       priceXS: 1.99,
       priceS: 2.99,
       priceM: 3.99,
@@ -24,7 +24,7 @@ export default function Screen_04() {
       priceXL: 5.99,
     },
     {
-      url: require("../assets/DATA/Container 7 (3).png"),
+      url: require("../assets/DATA/Container7(3).png"),
       priceXS: 1.99,
       priceS: 2.99,
       priceM: 3.99,
@@ -32,7 +32,7 @@ export default function Screen_04() {
       priceXL: 5.99,
     },
     {
-      url: require("../assets/DATA/Container 7.png"),
+      url: require("../assets/DATA/Container7.png"),
       priceXS: 1.99,
       priceS: 2.99,
       priceM: 3.99,
@@ -52,7 +52,7 @@ export default function Screen_04() {
 
   const navigation = useNavigation();
   const [imgCurrent, setImgCurrent] = useState(
-    require("../assets/DATA/Container 7 (3).png")
+    require("../assets/DATA/Container7(3).png")
   );
   const [indexSelected, setIndexSelected] = useState(2);
   const [priceCurrent, setPriceCurrent] = useState(4.99);
@@ -175,7 +175,7 @@ export default function Screen_04() {
               <View
                 style={{ flexDirection: "row", alignItems: "center", gap: 4 }}
               >
-                <Image source={require("../assets/DATA/Rating 3.png")} />
+                <Image source={require("../assets/DATA/Rating3.png")} />
                 <Text>4.5</Text>
               </View>
             </View>

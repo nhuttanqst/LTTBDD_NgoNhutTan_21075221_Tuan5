@@ -81,7 +81,7 @@ const Screen_03 = () => {
           <View>
             <Image
               style={styles.image}
-              source={require("../assets/DATA/Image 20.png")}
+              source={require("../assets/DATA/Image20.png")}
             />
           </View>
           <View style={styles.content}>

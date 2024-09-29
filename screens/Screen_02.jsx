@@ -105,7 +105,7 @@ const Screen_02 = () => {
             </TouchableOpacity>
           </View>
           <View style={styles.header}>
-            <Image source={require("../assets/DATA/Image 19.png")} />
+            <Image source={require("../assets/DATA/Image19.png")} />
             <Text style={styles.text1}>Nice to see you!</Text>
             <Text style={styles.text2}>Create your account</Text>
           </View>
