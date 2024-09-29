@@ -269,7 +269,7 @@ export default function Screen_04() {
                       width: 32,
                       height: 32,
                       backgroundColor: "#F1F2F4",
-                      borderRadius: "50%",
+                      borderRadius: 100,
                     }}
                     onPress={() => {
                       setQuantityCurrent(Math.max(quantityCurrent - 1, 1));
@@ -290,7 +290,7 @@ export default function Screen_04() {
                       width: 32,
                       height: 32,
                       backgroundColor: "#25C3D9",
-                      borderRadius: "50%",
+                      borderRadius: 100,
                     }}
                     onPress={() => {
                       setQuantityCurrent(quantityCurrent + 1);
@@ -333,6 +333,7 @@ export default function Screen_04() {
               borderColor: "#E7E8EA",
               paddingVertical: 13,
               paddingHorizontal: 16,
+              marginTop: 20,
             }}
           >
             <TouchableOpacity
